@@ -38,7 +38,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           ))}
         </div>
         <div className="lg:sticky lg:top-24 lg:h-fit">
-          <PhotoSlot caption={t('teamPhotoCaption')} aspect="aspect-[3/4]" />
+          <PhotoSlot variant="team" caption={t('teamPhotoCaption')} aspect="aspect-[3/4]" />
         </div>
       </Container>
     </>

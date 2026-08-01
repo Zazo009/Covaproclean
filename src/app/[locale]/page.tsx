@@ -106,9 +106,14 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <p className="mt-3 text-ink-800/75">{t('showcase.subheading')}</p>
           </div>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
-            <PhotoSlot caption={t('showcase.villa')} className="sm:col-span-1" />
-            <PhotoSlot caption={t('showcase.interior')} aspect="aspect-[4/5] sm:aspect-[4/6]" className="sm:-mt-6" />
-            <PhotoSlot caption={t('showcase.coast')} />
+            <PhotoSlot variant="villa" caption={t('showcase.villa')} className="sm:col-span-1" />
+            <PhotoSlot
+              variant="interior"
+              caption={t('showcase.interior')}
+              aspect="aspect-[4/5] sm:aspect-[4/6]"
+              className="sm:-mt-6"
+            />
+            <PhotoSlot variant="coast" caption={t('showcase.coast')} />
           </div>
         </Container>
       </section>
