@@ -25,9 +25,14 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-pine-100 bg-sand-50/95 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2 font-display text-lg font-semibold text-pine-900">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-pine-700 text-sm font-bold text-white">CPC</span>
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+        <Link
+          href="/"
+          className="flex shrink-0 items-center gap-2 whitespace-nowrap font-display text-lg font-semibold text-pine-900"
+        >
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-pine-700 text-sm font-bold text-white">
+            CPC
+          </span>
           Cova Pro Clean
         </Link>
 
@@ -46,11 +51,11 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 xl:flex">
+        <div className="hidden shrink-0 items-center gap-3 xl:flex">
           <LanguageSwitcher />
           <Link
             href="/book"
-            className="rounded-full bg-pine-700 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-pine-800"
+            className="whitespace-nowrap rounded-full bg-pine-700 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-pine-800"
           >
             {t('book')}
           </Link>
