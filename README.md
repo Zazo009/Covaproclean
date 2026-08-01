@@ -119,20 +119,40 @@ Without `RESEND_API_KEY`, both `/api/booking` and `/api/contact` still
 validate, price and log submissions — they just skip the send step and
 return success, so the flow is fully testable before email is configured.
 
-## Database setup (future)
+## Database setup
 
-No database is required for launch. When ready to persist bookings and add
-an admin dashboard:
+Without Supabase configured, bookings still validate, price and email — they
+just aren't persisted, and `/admin/bookings` shows an empty state. To store
+bookings and enable the admin dashboard:
 
-1. Create a Supabase project.
-2. Create a `bookings` table matching `src/lib/booking-types.ts`
-   (`BookingRecord`) — every field the spec calls for (customer details,
-   property details, pricing, status, consent, etc.) is already typed there.
-3. Replace `LoggingBookingRepository` in `src/lib/booking-repository.ts`
-   with a Supabase-backed implementation of the same `BookingRepository`
-   interface. No other file needs to change.
-4. Add `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` and
-   `SUPABASE_SERVICE_ROLE_KEY` to your environment.
+1. Create a Supabase project at [supabase.com](https://supabase.com).
+2. Open the SQL editor and run `supabase/schema.sql` from this repo.
+3. In Supabase → Project Settings → API, copy the project URL and the
+   **service role** key (not the anon key — the admin routes need
+   privileged access and run server-side only).
+4. Add `NEXT_PUBLIC_SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` to your
+   environment. `src/lib/booking-repository.ts` picks a Supabase-backed
+   implementation automatically once both are present — no code changes
+   needed.
+
+## Admin dashboard setup
+
+The admin dashboard lives at `/admin` (outside the public bilingual site,
+not linked from it). It requires:
+
+- `ADMIN_PASSWORD` — the shared sign-in password.
+- `ADMIN_SESSION_SECRET` — a long random string signing the session cookie.
+  Generate one with `openssl rand -hex 32`.
+- Supabase configured (see above) — without it, the dashboard loads but
+  shows "no bookings" since there's nowhere to read them from.
+
+This is intentionally a single shared password for v1, good enough for one
+or two staff. Before adding more admin users, replace `src/lib/admin-auth.ts`
+with real per-user authentication (e.g. Supabase Auth).
+
+Once configured: sign in at `/admin/login`, then `/admin/bookings` lets you
+filter by status/city, update a booking's status, add internal notes, and
+export everything currently shown to CSV.
 
 ## Deployment (Vercel)
 
@@ -183,8 +203,8 @@ project defaults to a service-area business with no public address.
 
 ## What's intentionally not built yet
 
-- **Admin dashboard** — the data model and repository interface are ready
-  for one, but no UI exists yet.
+- **Per-user admin accounts** — `/admin` uses a single shared password
+  (see "Admin dashboard setup"); fine for one or two staff, not for a team.
 - **Real-time calendar / availability** — every booking is explicitly
   labelled "pending confirmation"; no fake availability is ever shown.
 - **Online payments** — architecture is left open (see `.env.example`), not

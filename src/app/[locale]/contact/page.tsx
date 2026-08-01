@@ -41,22 +41,28 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                   </a>
                 </dd>
               </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-ink-800/60">{t('phoneLabel')}</dt>
-                <dd className="text-ink-950">{site.phone ?? t('phonePlaceholder')}</dd>
-              </div>
-              <div className="flex justify-between gap-4">
-                <dt className="text-ink-800/60">{t('whatsappLabel')}</dt>
-                <dd className="text-ink-950">{site.whatsapp ?? t('whatsappPlaceholder')}</dd>
-              </div>
+              {site.phone && (
+                <div className="flex justify-between gap-4">
+                  <dt className="text-ink-800/60">{t('phoneLabel')}</dt>
+                  <dd className="text-ink-950">{site.phone}</dd>
+                </div>
+              )}
+              {site.whatsapp && (
+                <div className="flex justify-between gap-4">
+                  <dt className="text-ink-800/60">{t('whatsappLabel')}</dt>
+                  <dd className="text-ink-950">{site.whatsapp}</dd>
+                </div>
+              )}
               <div className="flex justify-between gap-4">
                 <dt className="text-ink-800/60">{t('hoursLabel')}</dt>
                 <dd className="text-ink-950">{t('hoursPlaceholder')}</dd>
               </div>
             </dl>
-            <div className="mt-4">
-              <WhatsAppCTA />
-            </div>
+            {site.whatsapp && (
+              <div className="mt-4">
+                <WhatsAppCTA />
+              </div>
+            )}
           </div>
 
           <div className="rounded-xl2 border border-pine-100 bg-white p-6">

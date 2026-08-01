@@ -43,10 +43,12 @@ export function Footer() {
                 </a>
               </dd>
             </div>
-            <div className="flex gap-2">
-              <dt className="font-medium text-sand-100">{t('phoneLabel')}:</dt>
-              <dd>{site.phone ?? t('phonePlaceholder')}</dd>
-            </div>
+            {site.phone && (
+              <div className="flex gap-2">
+                <dt className="font-medium text-sand-100">{t('phoneLabel')}:</dt>
+                <dd>{site.phone}</dd>
+              </div>
+            )}
             <div className="flex gap-2">
               <dt className="font-medium text-sand-100">{t('hoursLabel')}:</dt>
               <dd>{t('hoursPlaceholder')}</dd>

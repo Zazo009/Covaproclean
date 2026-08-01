@@ -164,17 +164,14 @@
     }
   },
   "trustBadges": {
-    "vetted": "Profesionales de la limpieza seleccionados",
+    "reviewed": "Cada reserva revisada personalmente",
+    "costaFocus": "Pensado para la Costa del Sol",
+    "noUpfrontPayment": "Sin pago por adelantado para reservar",
+    "flexible": "Horarios flexibles",
     "insured": "Servicio asegurado",
     "guarantee": "Garantía de satisfacción",
-    "local": "Equipo local en la Costa del Sol",
-    "products": "Productos de limpieza profesionales",
     "eco": "Opciones ecológicas disponibles",
-    "flexible": "Reserva flexible",
-    "support": "Atención al cliente receptiva",
-    "securePayments": "Pagos seguros",
-    "backgroundChecked": "Personal verificado",
-    "pendingConfirmation": "Pendiente de confirmación"
+    "backgroundChecked": "Personal verificado"
   },
   "services": {
     "pageTitle": "Servicios de limpieza",

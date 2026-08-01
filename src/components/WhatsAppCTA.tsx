@@ -17,13 +17,9 @@ export function WhatsAppCTA({ className, variant = 'button' }: { className?: str
     window.dispatchEvent(new CustomEvent('analytics:event', { detail: { name: 'whatsapp_clicked', locale } }));
   };
 
-  if (!href) {
-    return (
-      <span className={cn('inline-flex items-center gap-2 rounded-full bg-pine-50 px-4 py-2 text-sm text-pine-700', className)}>
-        {t('notConfigured')}
-      </span>
-    );
-  }
+  // No number configured yet — render nothing rather than a "not configured"
+  // placeholder chip, so this simply appears once the number is added.
+  if (!href) return null;
 
   if (variant === 'fab') {
     return (

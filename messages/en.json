@@ -164,17 +164,14 @@
     }
   },
   "trustBadges": {
-    "vetted": "Vetted cleaning professionals",
+    "reviewed": "Every booking reviewed personally",
+    "costaFocus": "Built for the Costa del Sol",
+    "noUpfrontPayment": "No payment required to book",
+    "flexible": "Flexible scheduling",
     "insured": "Insured service",
     "guarantee": "Satisfaction guarantee",
-    "local": "Local Costa del Sol team",
-    "products": "Professional cleaning products",
     "eco": "Eco-friendly options available",
-    "flexible": "Flexible booking",
-    "support": "Responsive customer support",
-    "securePayments": "Secure payments",
-    "backgroundChecked": "Background-checked staff",
-    "pendingConfirmation": "Pending confirmation"
+    "backgroundChecked": "Background-checked staff"
   },
   "services": {
     "pageTitle": "Cleaning Services",

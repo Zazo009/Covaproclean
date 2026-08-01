@@ -8,6 +8,7 @@ import { TrustBadges } from '@/components/TrustBadges';
 import { TestimonialCard } from '@/components/TestimonialCard';
 import { FAQAccordion } from '@/components/FAQAccordion';
 import { PhotoSlot } from '@/components/PhotoSlot';
+import { WhatsAppCTA } from '@/components/WhatsAppCTA';
 import { CostaSkyline } from '@/components/illustrations/CostaSkyline';
 import { enabledServices } from '@/config/services';
 import { enabledAreas } from '@/config/areas';
@@ -228,6 +229,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <ButtonLink href="/book" size="lg">
               {t('finalCta.primaryCta')}
             </ButtonLink>
+            <WhatsAppCTA variant="button" />
           </div>
         </Container>
       </section>
