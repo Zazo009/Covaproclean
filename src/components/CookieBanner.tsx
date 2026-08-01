@@ -28,7 +28,7 @@ export function CookieBanner() {
       role="dialog"
       aria-modal="false"
       aria-label={t('heading')}
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-pine-100 bg-white p-4 shadow-soft sm:bottom-4 sm:left-4 sm:right-auto sm:max-w-md sm:rounded-xl2 sm:border"
+      className="fixed inset-x-0 bottom-20 z-50 border-t border-pine-100 bg-white p-4 shadow-soft md:bottom-4 md:left-4 md:right-auto md:max-w-md md:rounded-xl2 md:border"
     >
       <h2 className="text-sm font-semibold text-ink-950">{t('heading')}</h2>
       <p className="mt-1.5 text-xs text-ink-800/75">{t('body')}</p>
