@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Hero } from '@/components/Hero';
 import { Container } from '@/components/ui/Container';
 import { ButtonLink } from '@/components/ui/Button';
+import { PhotoSlot } from '@/components/PhotoSlot';
 import { Building, Store, Landmark, UtensilsCrossed, PanelsTopLeft, Users2, Boxes } from 'lucide-react';
 
 const sectorKeys = [
@@ -42,6 +43,7 @@ export default async function CommercialCleaningPage({ params }: { params: Promi
             </ButtonLink>
           </>
         }
+        visual={<PhotoSlot caption={t('heroPhotoCaption')} aspect="aspect-[4/5] lg:aspect-[4/3]" />}
       />
       <Container className="py-16">
         <h2 className="text-center font-display text-2xl font-semibold text-ink-950">{t('sectorsHeading')}</h2>

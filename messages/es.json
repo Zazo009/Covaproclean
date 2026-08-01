@@ -110,6 +110,13 @@
       "step4Title": "Nosotros nos encargamos del resto",
       "step4Desc": "Recibe una confirmación clara y disfruta de una propiedad limpiada por profesionales."
     },
+    "showcase": {
+      "heading": "El tipo de propiedades que cuidamos",
+      "subheading": "Villas, pisos y alquileres vacacionales por toda la costa — pronto añadiremos fotografías de trabajos reales.",
+      "villa": "Exterior de villa, Marbella",
+      "interior": "Salón, listo para huéspedes",
+      "coast": "Costa del Sol"
+    },
     "whyChoose": {
       "heading": "Por qué elegir Cova Pro Clean",
       "subheading": "Un enfoque moderno y transparente para la limpieza profesional en la Costa del Sol.",
@@ -494,6 +501,7 @@
       "primaryCta": "Reservar una limpieza de cambio",
       "secondaryCta": "Solicitar propuesta comercial"
     },
+    "heroPhotoCaption": "Dormitorio listo para huéspedes, Puerto Banús",
     "featuresHeading": "Pensado para operaciones de alquiler de corta estancia",
     "features": {
       "turnover": { "title": "Limpieza de cambio", "desc": "Puesta a punto completa entre cada estancia." },
@@ -521,6 +529,7 @@
       "primaryCta": "Solicitar presupuesto",
       "secondaryCta": "Reservar limpieza comercial"
     },
+    "heroPhotoCaption": "Recepción de oficina, Málaga",
     "sectorsHeading": "Sectores a los que damos servicio",
     "sectors": {
       "offices": "Oficinas",
@@ -554,7 +563,8 @@
     "reliabilityHeading": "Fiabilidad y comunicación",
     "reliabilityBody": "Cada solicitud de reserva se revisa y se confirma contigo directamente. Siempre sabrás si tu reserva está confirmada, pendiente o requiere presupuesto.",
     "commitmentHeading": "Nuestro compromiso contigo",
-    "commitmentBody": "Buscamos que cada paso, desde consultar los servicios hasta recibir la confirmación, sea claro, rápido y sin sorpresas desagradables."
+    "commitmentBody": "Buscamos que cada paso, desde consultar los servicios hasta recibir la confirmación, sea claro, rápido y sin sorpresas desagradables.",
+    "teamPhotoCaption": "El equipo — foto próximamente"
   },
   "contact": {
     "pageTitle": "Contacto",
@@ -645,12 +655,12 @@
   "legal": {
     "disclaimer": "Esta página es una plantilla en borrador y no constituye asesoramiento legal. Debe ser revisada por un profesional cualificado y completada con los datos oficiales de la empresa antes de su publicación.",
     "lastUpdated": "Última actualización",
-    "privacy": { "title": "Política de Privacidad", "intro": "Esta Política de Privacidad explica cómo [Nombre legal de la empresa — PENDIENTE] (\"Cova Pro Clean\", \"nosotros\") trata los datos personales de visitantes y clientes de acuerdo con el Reglamento General de Protección de Datos (RGPD) y la LOPDGDD.", "body": "Responsable del tratamiento: [Nombre legal, CIF, domicilio social — PENDIENTE]. Recopilamos los datos que envías a través de los formularios de reserva y contacto (nombre, datos de contacto, información de la propiedad y del servicio) para gestionar solicitudes de reserva, responder consultas y, con tu consentimiento, enviar comunicaciones comerciales. Los datos se conservan solo durante el tiempo necesario para estos fines y los requisitos legales aplicables. Tienes derecho de acceso, rectificación, supresión, limitación, portabilidad y oposición, ejercitables escribiendo a info@covaproclean.com. [Plazos de conservación de datos, lista de encargados del tratamiento y transferencias internacionales — PENDIENTE]." },
+    "privacy": { "title": "Política de Privacidad", "intro": "Esta Política de Privacidad explica cómo Cova Pro Clean SL (\"Cova Pro Clean\", \"nosotros\") trata los datos personales de visitantes y clientes de acuerdo con el Reglamento General de Protección de Datos (RGPD) y la LOPDGDD.", "body": "Responsable del tratamiento: Cova Pro Clean SL, CIF B22466536, domicilio social en Calle Somera 10, 6º 11, 29001 Málaga. Recopilamos los datos que envías a través de los formularios de reserva y contacto (nombre, datos de contacto, información de la propiedad y del servicio) para gestionar solicitudes de reserva, responder consultas y, con tu consentimiento, enviar comunicaciones comerciales. Los datos se conservan solo durante el tiempo necesario para estos fines y los requisitos legales aplicables. Tienes derecho de acceso, rectificación, supresión, limitación, portabilidad y oposición, ejercitables escribiendo a info@covaproclean.com. [Plazos de conservación de datos, lista de encargados del tratamiento y transferencias internacionales — PENDIENTE]." },
     "cookies": { "title": "Política de Cookies", "intro": "Esta Política de Cookies explica cómo utiliza Cova Pro Clean las cookies y tecnologías similares.", "body": "Utilizamos cookies necesarias para el funcionamiento del sitio y, solo con tu consentimiento, cookies analíticas (por ejemplo, Google Analytics) y de marketing (por ejemplo, Meta Pixel, Google Ads). Puedes gestionar tus preferencias en cualquier momento desde el enlace de configuración de cookies en el pie de página. [Listado completo de cookies/tecnologías y plazos de conservación — PENDIENTE]." },
-    "terms": { "title": "Términos y Condiciones", "intro": "Estos Términos y Condiciones regulan el uso del sitio web covaproclean.com y los servicios prestados por [Nombre legal de la empresa — PENDIENTE].", "body": "Al enviar una solicitud de reserva, aceptas estos términos y nuestros Términos de Reserva y Política de Cancelación. Los servicios se prestan sujetos a confirmación. [Límites de responsabilidad, resolución de conflictos, legislación aplicable (España) y jurisdicción — PENDIENTE]." },
+    "terms": { "title": "Términos y Condiciones", "intro": "Estos Términos y Condiciones regulan el uso del sitio web covaproclean.com y los servicios prestados por Cova Pro Clean SL (CIF B22466536).", "body": "Al enviar una solicitud de reserva, aceptas estos términos y nuestros Términos de Reserva y Política de Cancelación. Los servicios se prestan sujetos a confirmación. [Límites de responsabilidad, resolución de conflictos, legislación aplicable (España) y jurisdicción — PENDIENTE]." },
     "bookingTerms": { "title": "Términos de Reserva", "intro": "Estos Términos de Reserva se aplican a todos los servicios de limpieza reservados a través de covaproclean.com.", "body": "Una reserva enviada es una solicitud y se considera confirmada únicamente cuando recibes la confirmación de Cova Pro Clean. Los precios estimados se basan en la información proporcionada y pueden ajustarse tras una evaluación de la propiedad. [Condiciones de pago, importe mínimo de reserva, gastos de desplazamiento y requisitos de depósito — PENDIENTE]." },
     "cancellation": { "title": "Política de Cancelación", "intro": "Esta Política de Cancelación explica cómo cancelar o reprogramar una reserva.", "body": "[Plazo de aviso, cargos por cancelación tardía, política de no presentación y elegibilidad de reembolso — PENDIENTE. Ningún contenido posterior debe considerarse definitivo hasta ser confirmado por la empresa.]" },
-    "avisoLegal": { "title": "Aviso Legal", "intro": "De conformidad con la Ley 34/2002 de Servicios de la Sociedad de la Información (LSSI), se facilita la siguiente información sobre el titular de este sitio web.", "body": "Nombre de la empresa: [PENDIENTE]. CIF/NIF: [PENDIENTE]. Domicilio social: [PENDIENTE]. Correo de contacto: info@covaproclean.com. [Datos de inscripción en el registro mercantil, si procede — PENDIENTE]." }
+    "avisoLegal": { "title": "Aviso Legal", "intro": "De conformidad con la Ley 34/2002 de Servicios de la Sociedad de la Información (LSSI), se facilita la siguiente información sobre el titular de este sitio web.", "body": "Nombre de la empresa: Cova Pro Clean SL. CIF: B22466536. Domicilio social: Calle Somera 10, 6º 11, 29001 Málaga. Correo de contacto: info@covaproclean.com. [Datos de inscripción en el Registro Mercantil (tomo/folio/hoja), si se van a publicar — PENDIENTE]." }
   },
   "booking": {
     "pageTitle": "Reservar limpieza",

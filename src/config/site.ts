@@ -5,9 +5,13 @@
  */
 export const site = {
   name: 'Cova Pro Clean',
-  legalName: 'TODO: confirm registered legal company name',
-  cif: 'TODO: confirm CIF/NIF',
-  registeredAddress: 'TODO: confirm registered address (not necessarily public)',
+  // Source: Spanish mercantile registry data (CIF/address), cross-checked
+  // across eInforma, Iberinform and Empresite — 2026-08-01. Re-verify against
+  // an official registry extract (Registro Mercantil) before relying on this
+  // for legal filings.
+  legalName: 'Cova Pro Clean SL',
+  cif: 'B22466536',
+  registeredAddress: 'Calle Somera, 10, 6º 11, 29001 Málaga, Spain',
   publicAddress: null as string | null, // null = operate as service-area business, no public address
   domain: 'https://covaproclean.com',
   email: 'info@covaproclean.com',

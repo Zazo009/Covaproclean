@@ -7,6 +7,8 @@ import { AreaCard } from '@/components/AreaCard';
 import { TrustBadges } from '@/components/TrustBadges';
 import { TestimonialCard } from '@/components/TestimonialCard';
 import { FAQAccordion } from '@/components/FAQAccordion';
+import { PhotoSlot } from '@/components/PhotoSlot';
+import { CostaSkyline } from '@/components/illustrations/CostaSkyline';
 import { enabledServices } from '@/config/services';
 import { enabledAreas } from '@/config/areas';
 import { testimonials } from '@/config/testimonials';
@@ -44,6 +46,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               {t('hero.secondaryCta')}
             </ButtonLink>
           </>
+        }
+        visual={
+          <div className="overflow-hidden rounded-xl2 border border-pine-200/60 shadow-soft">
+            <CostaSkyline className="h-full w-full" />
+          </div>
         }
       />
 
@@ -89,6 +96,20 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               </li>
             ))}
           </ol>
+        </Container>
+      </section>
+
+      <section className="bg-sand-100/60 py-20">
+        <Container>
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="font-display text-3xl font-semibold text-ink-950">{t('showcase.heading')}</h2>
+            <p className="mt-3 text-ink-800/75">{t('showcase.subheading')}</p>
+          </div>
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
+            <PhotoSlot caption={t('showcase.villa')} className="sm:col-span-1" />
+            <PhotoSlot caption={t('showcase.interior')} aspect="aspect-[4/5] sm:aspect-[4/6]" className="sm:-mt-6" />
+            <PhotoSlot caption={t('showcase.coast')} />
+          </div>
         </Container>
       </section>
 
