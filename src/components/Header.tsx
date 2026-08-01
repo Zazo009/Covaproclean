@@ -31,13 +31,13 @@ export function Header() {
           Cova Pro Clean
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-4 2xl:gap-6 xl:flex" aria-label="Primary">
           {navItems.map((item) => (
             <Link
               key={item.key}
               href={item.href}
               className={cn(
-                'text-sm font-medium text-ink-800/80 transition-colors hover:text-pine-700',
+                'whitespace-nowrap text-sm font-medium text-ink-800/80 transition-colors hover:text-pine-700',
                 pathname === item.href && 'text-pine-700'
               )}
             >
@@ -46,7 +46,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <LanguageSwitcher />
           <Link
             href="/book"
@@ -58,7 +58,7 @@ export function Header() {
 
         <button
           type="button"
-          className="flex items-center justify-center rounded-full p-2 text-pine-800 lg:hidden"
+          className="flex items-center justify-center rounded-full p-2 text-pine-800 xl:hidden"
           aria-expanded={open}
           aria-label={open ? t('close') : t('menu')}
           onClick={() => setOpen((v) => !v)}
@@ -68,7 +68,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-pine-100 bg-sand-50 lg:hidden">
+        <div className="border-t border-pine-100 bg-sand-50 xl:hidden">
           <nav className="flex flex-col gap-1 px-4 py-3" aria-label="Mobile">
             {navItems.map((item) => (
               <Link
