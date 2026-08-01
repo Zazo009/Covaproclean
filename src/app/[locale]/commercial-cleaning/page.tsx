@@ -5,6 +5,7 @@ import { Container } from '@/components/ui/Container';
 import { ButtonLink } from '@/components/ui/Button';
 import { PhotoSlot } from '@/components/PhotoSlot';
 import { Reveal } from '@/components/Reveal';
+import { buildAlternates } from '@/lib/seo';
 import { Building, Store, Landmark, UtensilsCrossed, PanelsTopLeft, Users2, Boxes } from 'lucide-react';
 
 const sectorKeys = [
@@ -20,7 +21,7 @@ const sectorKeys = [
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'commercialPage' });
-  return { title: t('pageTitle') };
+  return { title: t('pageTitle'), alternates: buildAlternates(locale, '/commercial-cleaning') };
 }
 
 export default async function CommercialCleaningPage({ params }: { params: Promise<{ locale: string }> }) {

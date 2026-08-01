@@ -89,6 +89,7 @@
     "categories": {
       "heading": "Servicios de limpieza para cada tipo de propiedad",
       "subheading": "Desde el mantenimiento semanal hasta una limpieza profunda puntual, elige el servicio que mejor se adapte a tu espacio.",
+      "viewAllCta": "Ver todos los servicios",
       "residential": "Limpieza de hogares",
       "residentialDesc": "Limpieza recurrente, puntual y profunda para pisos, villas y adosados.",
       "holidayRental": "Limpieza de alquileres vacacionales",
@@ -152,6 +153,7 @@
       "point3": "Comunicación directa con un equipo local en la Costa del Sol",
       "point4": "Condiciones y política de cancelación claras"
     },
+    "viewAllAreasCta": "Ver todas las zonas donde operamos",
     "testimonialsHeading": "Lo que dicen nuestros clientes",
     "testimonialsNote": "Testimonios de ejemplo mostrados mientras recopilamos opiniones verificadas de clientes.",
     "faqPreviewHeading": "Preguntas frecuentes",

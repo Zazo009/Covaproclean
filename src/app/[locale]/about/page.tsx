@@ -4,6 +4,7 @@ import { Hero } from '@/components/Hero';
 import { Container } from '@/components/ui/Container';
 import { PhotoSlot } from '@/components/PhotoSlot';
 import { Reveal } from '@/components/Reveal';
+import { buildAlternates } from '@/lib/seo';
 
 const sections = [
   ['storyHeading', 'storyBody'],
@@ -18,7 +19,7 @@ const sections = [
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'about' });
-  return { title: t('pageTitle') };
+  return { title: t('pageTitle'), alternates: buildAlternates(locale, '/about') };
 }
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {

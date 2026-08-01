@@ -5,11 +5,12 @@ import { Container } from '@/components/ui/Container';
 import { AreaCard } from '@/components/AreaCard';
 import { Reveal } from '@/components/Reveal';
 import { enabledAreas } from '@/config/areas';
+import { buildAlternates } from '@/lib/seo';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'areas' });
-  return { title: t('pageTitle'), description: t('pageDescription') };
+  return { title: t('pageTitle'), description: t('pageDescription'), alternates: buildAlternates(locale, '/areas') };
 }
 
 export default async function AreasPage({ params }: { params: Promise<{ locale: string }> }) {

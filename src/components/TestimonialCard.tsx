@@ -15,7 +15,7 @@ export function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
           {tCommon('sampleTestimonial')}
         </span>
       )}
-      <div className="flex gap-0.5 text-coral-500" aria-label={`${testimonial.rating} / 5`}>
+      <div className="flex gap-0.5 text-coral-500" role="img" aria-label={`${testimonial.rating} / 5`}>
         {Array.from({ length: 5 }).map((_, i) => (
           <Star key={i} className="h-4 w-4" fill={i < testimonial.rating ? 'currentColor' : 'none'} />
         ))}

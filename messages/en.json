@@ -89,6 +89,7 @@
     "categories": {
       "heading": "Cleaning services for every property",
       "subheading": "From weekly upkeep to one-off deep cleans, choose the service that matches your space.",
+      "viewAllCta": "View all services",
       "residential": "Residential Cleaning",
       "residentialDesc": "Regular, one-time and deep cleaning for apartments, villas and townhouses.",
       "holidayRental": "Holiday Rental Cleaning",
@@ -152,6 +153,7 @@
       "point3": "Direct communication from a local Costa del Sol team",
       "point4": "Straightforward terms and cancellation policy"
     },
+    "viewAllAreasCta": "View all areas we serve",
     "testimonialsHeading": "What customers say",
     "testimonialsNote": "Sample testimonials shown while we collect verified customer reviews.",
     "faqPreviewHeading": "Common questions",

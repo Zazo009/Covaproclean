@@ -6,11 +6,12 @@ import { ContactForm } from '@/components/ContactForm';
 import { ButtonLink } from '@/components/ui/Button';
 import { WhatsAppCTA } from '@/components/WhatsAppCTA';
 import { site } from '@/config/site';
+import { buildAlternates } from '@/lib/seo';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'contact' });
-  return { title: t('pageTitle'), description: t('pageDescription') };
+  return { title: t('pageTitle'), description: t('pageDescription'), alternates: buildAlternates(locale, '/contact') };
 }
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {

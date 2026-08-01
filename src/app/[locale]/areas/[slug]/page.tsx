@@ -9,6 +9,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { areas, getArea } from '@/config/areas';
 import { enabledServices } from '@/config/services';
 import { site } from '@/config/site';
+import { buildAlternates } from '@/lib/seo';
 
 export function generateStaticParams() {
   return areas.filter((a) => a.enabled).map((a) => ({ slug: a.slug }));
@@ -26,7 +27,7 @@ export async function generateMetadata({
   return {
     title: `${t(`${slug}.name`)} — Cova Pro Clean`,
     description: t(`${slug}.intro`),
-    alternates: { canonical: `/areas/${slug}` },
+    alternates: buildAlternates(locale, { pathname: '/areas/[slug]', params: { slug } }),
   };
 }
 

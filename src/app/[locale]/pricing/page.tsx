@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Hero } from '@/components/Hero';
 import { Container } from '@/components/ui/Container';
 import { ButtonLink } from '@/components/ui/Button';
+import { buildAlternates } from '@/lib/seo';
 
 const factorKeys = [
   'propertySize',
@@ -18,7 +19,7 @@ const factorKeys = [
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'pricing' });
-  return { title: t('pageTitle'), description: t('pageDescription') };
+  return { title: t('pageTitle'), description: t('pageDescription'), alternates: buildAlternates(locale, '/pricing') };
 }
 
 export default async function PricingPage({ params }: { params: Promise<{ locale: string }> }) {

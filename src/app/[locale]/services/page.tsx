@@ -5,11 +5,12 @@ import { Container } from '@/components/ui/Container';
 import { ServiceCard } from '@/components/ServiceCard';
 import { Reveal } from '@/components/Reveal';
 import { enabledServices } from '@/config/services';
+import { buildAlternates } from '@/lib/seo';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'services' });
-  return { title: t('pageTitle'), description: t('pageDescription') };
+  return { title: t('pageTitle'), description: t('pageDescription'), alternates: buildAlternates(locale, '/services') };
 }
 
 export default async function ServicesPage({ params }: { params: Promise<{ locale: string }> }) {

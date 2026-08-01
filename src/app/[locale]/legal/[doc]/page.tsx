@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Container } from '@/components/ui/Container';
+import { buildAlternates } from '@/lib/seo';
 
 const docs = ['privacy', 'cookies', 'terms', 'booking-terms', 'cancellation', 'aviso-legal'] as const;
 type Doc = (typeof docs)[number];
@@ -26,7 +27,10 @@ export async function generateMetadata({
   const { locale, doc } = await params;
   if (!docs.includes(doc as Doc)) return {};
   const t = await getTranslations({ locale, namespace: 'legal' });
-  return { title: t(`${keyMap[doc as Doc]}.title`) };
+  return {
+    title: t(`${keyMap[doc as Doc]}.title`),
+    alternates: buildAlternates(locale, { pathname: '/legal/[doc]', params: { doc } }),
+  };
 }
 
 export default async function LegalPage({

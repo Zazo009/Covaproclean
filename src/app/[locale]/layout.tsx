@@ -34,10 +34,12 @@ export async function generateMetadata({
     metadataBase: new URL(site.domain),
     title: { default: t('defaultTitle'), template: `%s | ${t('siteName')}` },
     description: t('defaultDescription'),
-    alternates: {
-      canonical: locale === routing.defaultLocale ? '/' : `/${locale}`,
-      languages: { en: '/', es: '/es' },
-    },
+    // No site-wide `alternates` here on purpose — every page below sets its
+    // own canonical/hreflang via `buildAlternates()` (see src/lib/seo.ts).
+    // A single shared default here would silently become every page's
+    // canonical if that page forgot to override it (a real duplicate-
+    // content bug, not just a testing artifact).
+    icons: { icon: '/favicon.ico', apple: '/icon.png' },
     openGraph: {
       type: 'website',
       siteName: t('siteName'),

@@ -99,7 +99,7 @@ export function CookieBanner() {
           </button>
         )}
       </div>
-      <Link href={{ pathname: '/legal/[doc]', params: { doc: 'cookies' } }} className="mt-2 inline-block text-[11px] text-ink-800/50 underline">
+      <Link href={{ pathname: '/legal/[doc]', params: { doc: 'cookies' } }} className="mt-2 inline-block text-[11px] text-pine-700 underline">
         {t('policyLink')}
       </Link>
     </div>

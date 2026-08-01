@@ -10,6 +10,7 @@ import { Link } from '@/i18n/navigation';
 import { enabledServices, getService, services } from '@/config/services';
 import { enabledAreas } from '@/config/areas';
 import { site } from '@/config/site';
+import { buildAlternates } from '@/lib/seo';
 import { Check, X } from 'lucide-react';
 
 export function generateStaticParams() {
@@ -28,7 +29,7 @@ export async function generateMetadata({
   return {
     title: t(`${slug}.name`),
     description: t(`${slug}.shortDescription`),
-    alternates: { canonical: `/services/${slug}` },
+    alternates: buildAlternates(locale, { pathname: '/services/[slug]', params: { slug } }),
   };
 }
 

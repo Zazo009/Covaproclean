@@ -5,6 +5,7 @@ import { Container } from '@/components/ui/Container';
 import { ButtonLink } from '@/components/ui/Button';
 import { PhotoSlot } from '@/components/PhotoSlot';
 import { Reveal } from '@/components/Reveal';
+import { buildAlternates } from '@/lib/seo';
 import {
   RefreshCw,
   ClipboardCheck,
@@ -36,7 +37,7 @@ const featureKeys = [
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'holidayRentalPage' });
-  return { title: t('pageTitle') };
+  return { title: t('pageTitle'), alternates: buildAlternates(locale, '/holiday-rental-cleaning') };
 }
 
 export default async function HolidayRentalPage({ params }: { params: Promise<{ locale: string }> }) {

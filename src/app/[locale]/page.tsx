@@ -1,4 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import type { Metadata } from 'next';
+import { buildAlternates } from '@/lib/seo';
 import { Hero } from '@/components/Hero';
 import { Container } from '@/components/ui/Container';
 import { ButtonLink } from '@/components/ui/Button';
@@ -17,11 +19,15 @@ import { testimonials } from '@/config/testimonials';
 import { faqs } from '@/config/faqs';
 import { ClipboardList, CalendarCheck, Home as HomeIcon, Sparkles } from 'lucide-react';
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  return { alternates: buildAlternates(locale, '/') };
+}
+
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations('home');
-  const tCommon = await getTranslations('common');
   const tAreas = await getTranslations('areas');
 
   const featuredServices = enabledServices().slice(0, 6);
@@ -71,7 +77,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
           <div className="mt-10 text-center">
             <ButtonLink href="/services" variant="secondary">
-              {tCommon('learnMore')}
+              {t('categories.viewAllCta')}
             </ButtonLink>
           </div>
         </Container>
@@ -203,7 +209,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
           <div className="mt-10 text-center">
             <ButtonLink href="/areas" variant="secondary">
-              {tCommon('learnMore')}
+              {t('viewAllAreasCta')}
             </ButtonLink>
           </div>
         </Container>

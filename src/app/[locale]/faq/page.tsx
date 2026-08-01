@@ -5,11 +5,12 @@ import { Container } from '@/components/ui/Container';
 import { FAQAccordion } from '@/components/FAQAccordion';
 import { JsonLd } from '@/components/JsonLd';
 import { faqCategories, faqs } from '@/config/faqs';
+import { buildAlternates } from '@/lib/seo';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'faq' });
-  return { title: t('pageTitle'), description: t('pageDescription') };
+  return { title: t('pageTitle'), description: t('pageDescription'), alternates: buildAlternates(locale, '/faq') };
 }
 
 export default async function FaqPage({ params }: { params: Promise<{ locale: string }> }) {
