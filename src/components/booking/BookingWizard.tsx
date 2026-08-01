@@ -8,25 +8,19 @@ import { bookingSchema, type BookingInput } from '@/lib/booking-schema';
 import { Button } from '@/components/ui/Button';
 import { BookingProgress } from './BookingProgress';
 import { ServiceStep, serviceStepFields } from './steps/ServiceStep';
-import { LocationStep, locationStepFields } from './steps/LocationStep';
-import { PropertyDetailsStep, propertyDetailsStepFields } from './steps/PropertyDetailsStep';
-import { FrequencyStep, frequencyStepFields } from './steps/FrequencyStep';
+import { PropertyStep, propertyStepFields } from './steps/PropertyStep';
+import { ScheduleStep, scheduleStepFields } from './steps/ScheduleStep';
 import { ExtrasStep, extrasStepFields } from './steps/ExtrasStep';
-import { DateTimeStep, dateTimeStepFields } from './steps/DateTimeStep';
-import { AccessStep, accessStepFields } from './steps/AccessStep';
-import { CustomerStep, customerStepFields } from './steps/CustomerStep';
+import { DetailsStep, detailsStepFields } from './steps/DetailsStep';
 import { SummaryStep, summaryStepFields } from './steps/SummaryStep';
 import { ConfirmationStep } from './steps/ConfirmationStep';
 
 const steps = [
   { Component: ServiceStep, fields: serviceStepFields },
-  { Component: LocationStep, fields: locationStepFields },
-  { Component: PropertyDetailsStep, fields: propertyDetailsStepFields },
-  { Component: FrequencyStep, fields: frequencyStepFields },
+  { Component: PropertyStep, fields: propertyStepFields },
+  { Component: ScheduleStep, fields: scheduleStepFields },
   { Component: ExtrasStep, fields: extrasStepFields },
-  { Component: DateTimeStep, fields: dateTimeStepFields },
-  { Component: AccessStep, fields: accessStepFields },
-  { Component: CustomerStep, fields: customerStepFields },
+  { Component: DetailsStep, fields: detailsStepFields },
   { Component: SummaryStep, fields: summaryStepFields },
 ];
 
@@ -40,6 +34,7 @@ export function BookingWizard() {
   const locale = useLocale() as 'en' | 'es';
   const t = useTranslations('booking.errors');
   const [stepIndex, setStepIndex] = useState(0);
+  const [direction, setDirection] = useState<'forward' | 'back'>('forward');
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [bookingReference, setBookingReference] = useState<string | null>(null);
@@ -73,11 +68,13 @@ export function BookingWizard() {
     if (!isValid) return;
     track('booking_step_completed', { step: stepIndex });
     if (stepIndex === 0) track('service_selected', { service: getValues('serviceType') });
+    setDirection('forward');
     setStepIndex((i) => Math.min(i + 1, steps.length - 1));
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const goBack = () => {
+    setDirection('back');
     setStepIndex((i) => Math.max(i - 1, 0));
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -105,6 +102,7 @@ export function BookingWizard() {
 
       const json = (await res.json()) as { bookingReference: string };
       setBookingReference(json.bookingReference);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       track('booking_submitted', { service: data.serviceType });
     } catch {
       setSubmitError(t('networkError'));
@@ -130,7 +128,9 @@ export function BookingWizard() {
       >
         <input type="text" tabIndex={-1} autoComplete="off" className="hidden" {...methods.register('company')} aria-hidden="true" />
 
-        <StepComponent />
+        <div key={stepIndex} className={direction === 'forward' ? 'animate-step-in' : 'animate-step-in-back'}>
+          <StepComponent />
+        </div>
 
         {submitError && <p className="mt-4 rounded-lg bg-coral-400/10 p-3 text-sm text-coral-700">{submitError}</p>}
 

@@ -4,7 +4,9 @@ import { useFormContext } from 'react-hook-form';
 import { useTranslations } from 'next-intl';
 import type { BookingInput } from '@/lib/booking-schema';
 import { enabledExtras } from '@/config/extras';
+import { getService } from '@/config/services';
 import { cn } from '@/lib/cn';
+import { StepHeader } from './StepHeader';
 
 export function ExtrasStep() {
   const { watch, setValue } = useFormContext<BookingInput>();
@@ -12,6 +14,16 @@ export function ExtrasStep() {
   const tCommon = useTranslations('common');
   const tExtras = useTranslations('extras.items');
   const selected = watch('extras') ?? [];
+  const serviceType = watch('serviceType');
+  const service = getService(serviceType);
+
+  const extraMinutes = selected.reduce((sum, sel) => {
+    const extra = enabledExtras().find((e) => e.id === sel.id);
+    return sum + (extra ? extra.estimatedMinutes * sel.quantity : 0);
+  }, 0);
+  const baseRange = service?.durationRangeMinutes;
+  const totalMin = baseRange ? baseRange[0] + extraMinutes : null;
+  const totalMax = baseRange ? baseRange[1] + extraMinutes : null;
 
   const isSelected = (id: string) => selected.some((e) => e.id === id);
   const quantityOf = (id: string) => selected.find((e) => e.id === id)?.quantity ?? 1;
@@ -36,10 +48,21 @@ export function ExtrasStep() {
 
   return (
     <div>
-      <h2 className="font-display text-xl font-semibold text-ink-950">{t('heading')}</h2>
-      <p className="mt-1 text-sm text-ink-800/70">{t('subheading')}</p>
+      <StepHeader variant="interior" heading={t('heading')} subheading={t('subheading')} />
 
-      <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+      {totalMin !== null && totalMax !== null && (
+        <div
+          key={`${extraMinutes}-${selected.length}`}
+          className="animate-pop-in mb-6 flex items-center justify-between rounded-xl2 border border-pine-200 bg-pine-50 px-5 py-3"
+        >
+          <span className="text-sm font-medium text-pine-800">{t('runningTotalLabel')}</span>
+          <span className="font-display text-lg font-semibold text-pine-800">
+            {t('runningTotal', { min: totalMin, max: totalMax })}
+          </span>
+        </div>
+      )}
+
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {enabledExtras().map((extra) => {
           const active = isSelected(extra.id);
           const priceLabel =

@@ -4,6 +4,7 @@ import { useFormContext } from 'react-hook-form';
 import { useTranslations } from 'next-intl';
 import type { BookingInput } from '@/lib/booking-schema';
 import { estimatePricing } from '@/lib/pricing';
+import { StepHeader } from './StepHeader';
 
 export function SummaryStep() {
   const {
@@ -28,10 +29,9 @@ export function SummaryStep() {
 
   return (
     <div>
-      <h2 className="font-display text-xl font-semibold text-ink-950">{t('heading')}</h2>
-      <p className="mt-1 text-sm text-ink-800/70">{t('subheading')}</p>
+      <StepHeader variant="bedroom" heading={t('heading')} subheading={t('subheading')} />
 
-      <dl className="mt-6 space-y-3 rounded-xl2 border border-pine-100 bg-white p-5 text-sm">
+      <dl className="space-y-3 rounded-xl2 border border-pine-100 bg-white p-5 text-sm">
         <Row label={t('service')} value={values.serviceType ? tServices(`${values.serviceType}.name`) : '—'} />
         <Row label={t('property')} value={[values.propertyType, values.city].filter(Boolean).join(', ') || '—'} />
         <Row label={t('frequency')} value={values.frequency ?? '—'} />

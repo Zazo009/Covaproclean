@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import type { BookingInput } from '@/lib/booking-schema';
 import { enabledServices } from '@/config/services';
 import { cn } from '@/lib/cn';
+import { StepHeader } from './StepHeader';
 
 export function ServiceStep() {
   const { register, watch } = useFormContext<BookingInput>();
@@ -14,10 +15,9 @@ export function ServiceStep() {
 
   return (
     <div>
-      <h2 className="font-display text-xl font-semibold text-ink-950">{t('heading')}</h2>
-      <p className="mt-1 text-sm text-ink-800/70">{t('subheading')}</p>
+      <StepHeader variant="coast" heading={t('heading')} subheading={t('subheading')} />
 
-      <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {enabledServices().map((service) => (
           <label
             key={service.slug}

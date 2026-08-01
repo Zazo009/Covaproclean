@@ -1,20 +1,71 @@
 'use client';
 
+import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { WhatsAppCTA } from '@/components/WhatsAppCTA';
-import { CheckCircle2 } from 'lucide-react';
+
+const confettiColors = ['#175443', '#4CA483', '#E98A6B', '#F5C453', '#7FC0A4'];
+
+function Confetti() {
+  const pieces = useMemo(
+    () =>
+      Array.from({ length: 18 }, (_, i) => ({
+        id: i,
+        left: Math.round(Math.random() * 100),
+        delay: Math.round(Math.random() * 500),
+        color: confettiColors[i % confettiColors.length],
+        rotate: Math.round(Math.random() * 60) - 30,
+      })),
+    []
+  );
+
+  return (
+    <div className="pointer-events-none absolute inset-x-0 top-0 h-56 overflow-hidden" aria-hidden="true">
+      {pieces.map((p) => (
+        <span
+          key={p.id}
+          className="animate-confetti absolute top-0 h-2.5 w-1.5 rounded-sm"
+          style={{
+            left: `${p.left}%`,
+            backgroundColor: p.color,
+            animationDelay: `${p.delay}ms`,
+            transform: `rotate(${p.rotate}deg)`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+function DrawnCheck() {
+  return (
+    <div className="animate-pop-in mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-pine-600">
+      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none">
+        <path
+          d="M5 13l4 4L19 7"
+          stroke="white"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="animate-check-draw"
+        />
+      </svg>
+    </div>
+  );
+}
 
 export function ConfirmationStep({ bookingReference }: { bookingReference: string }) {
   const t = useTranslations('booking.confirmation');
 
   return (
-    <div className="text-center">
-      <CheckCircle2 className="mx-auto h-12 w-12 text-pine-600" />
+    <div className="relative text-center">
+      <Confetti />
+      <DrawnCheck />
       <h2 className="mt-4 font-display text-2xl font-semibold text-ink-950">{t('heading')}</h2>
       <p className="mt-2 text-ink-800/75">{t('subheading')}</p>
 
-      <div className="mx-auto mt-6 w-fit rounded-xl2 border border-pine-200 bg-pine-50 px-6 py-4">
+      <div className="animate-pop-in mx-auto mt-6 w-fit rounded-xl2 border border-pine-200 bg-pine-50 px-6 py-4">
         <p className="text-xs uppercase tracking-wide text-pine-700">{t('referenceLabel')}</p>
         <p className="mt-1 font-mono text-lg font-semibold text-ink-950">{bookingReference}</p>
         <p className="mt-2 text-sm font-medium text-coral-600">{t('statusPending')}</p>

@@ -4,6 +4,11 @@ import { frequencies, propertyTypes, accessMethods, contactMethods, propertyCond
 
 const serviceSlugs = services.map((s) => s.slug) as [string, ...string[]];
 
+/** Treats an empty string (an untouched optional number/select field) as absent instead of a validation failure. */
+function optionalEmpty<T extends z.ZodTypeAny>(schema: T) {
+  return z.preprocess((v) => (v === '' || Number.isNaN(v) ? undefined : v), schema.optional());
+}
+
 export const bookingSchema = z.object({
   // honeypot — must stay empty
   company: z.string().max(0).optional().default(''),
@@ -24,15 +29,15 @@ export const bookingSchema = z.object({
   liftAvailable: z.boolean().optional(),
   parkingInstructions: z.string().max(500).optional(),
 
-  squareMetres: z.number().int().positive().max(10000).optional(),
-  bedrooms: z.number().int().min(0).max(50).optional(),
-  bathrooms: z.number().int().min(0).max(50).optional(),
-  kitchens: z.number().int().min(0).max(20).optional(),
-  livingAreas: z.number().int().min(0).max(20).optional(),
-  floorsInProperty: z.number().int().min(1).max(20).optional(),
+  squareMetres: optionalEmpty(z.number().int().positive().max(10000)),
+  bedrooms: optionalEmpty(z.number().int().min(0).max(50)),
+  bathrooms: optionalEmpty(z.number().int().min(0).max(50)),
+  kitchens: optionalEmpty(z.number().int().min(0).max(20)),
+  livingAreas: optionalEmpty(z.number().int().min(0).max(20)),
+  floorsInProperty: optionalEmpty(z.number().int().min(1).max(20)),
   hasTerrace: z.boolean().optional(),
   hasPets: z.boolean().optional(),
-  propertyCondition: z.enum(propertyConditions).optional(),
+  propertyCondition: optionalEmpty(z.enum(propertyConditions)),
   furnished: z.boolean().optional(),
   recentConstructionWork: z.boolean().optional(),
   lastProfessionalClean: z.string().max(50).optional(),

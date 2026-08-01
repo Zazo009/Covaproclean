@@ -668,13 +668,10 @@
     "pendingNotice": "Your requested date and time are pending confirmation. We'll reach out to confirm final availability.",
     "steps": {
       "service": "Service",
-      "location": "Location",
-      "propertyDetails": "Property details",
-      "frequency": "Frequency",
+      "property": "Property",
+      "schedule": "Schedule",
       "extras": "Extras",
-      "dateTime": "Date & time",
-      "access": "Access",
-      "customer": "Your details",
+      "details": "Your details",
       "summary": "Summary",
       "confirmation": "Confirmation"
     },
@@ -737,7 +734,9 @@
       "heading": "Add optional extras",
       "subheading": "Select any additional services you'd like included.",
       "quantity": "Quantity",
-      "estimatedTime": "+{minutes} min"
+      "estimatedTime": "+{minutes} min",
+      "runningTotalLabel": "Estimated cleaning time",
+      "runningTotal": "{min}–{max} min"
     },
     "dateTime": {
       "heading": "Choose your preferred date and time",

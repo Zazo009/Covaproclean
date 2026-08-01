@@ -668,13 +668,10 @@
     "pendingNotice": "La fecha y hora solicitadas están pendientes de confirmación. Te contactaremos para confirmar la disponibilidad final.",
     "steps": {
       "service": "Servicio",
-      "location": "Ubicación",
-      "propertyDetails": "Datos de la propiedad",
-      "frequency": "Frecuencia",
+      "property": "Propiedad",
+      "schedule": "Horario",
       "extras": "Extras",
-      "dateTime": "Fecha y hora",
-      "access": "Acceso",
-      "customer": "Tus datos",
+      "details": "Tus datos",
       "summary": "Resumen",
       "confirmation": "Confirmación"
     },
@@ -737,7 +734,9 @@
       "heading": "Añade extras opcionales",
       "subheading": "Selecciona los servicios adicionales que quieras incluir.",
       "quantity": "Cantidad",
-      "estimatedTime": "+{minutes} min"
+      "estimatedTime": "+{minutes} min",
+      "runningTotalLabel": "Tiempo de limpieza estimado",
+      "runningTotal": "{min}–{max} min"
     },
     "dateTime": {
       "heading": "Elige tu fecha y hora preferidas",
