@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Hero } from '@/components/Hero';
 import { Container } from '@/components/ui/Container';
 import { ServiceCard } from '@/components/ServiceCard';
+import { Reveal } from '@/components/Reveal';
 import { enabledServices } from '@/config/services';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -23,8 +24,10 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
       <Hero headline={t('pageTitle')} subheadline={t('pageDescription')} compact />
       <Container className="py-16">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {list.map((service) => (
-            <ServiceCard key={service.slug} service={service} />
+          {list.map((service, i) => (
+            <Reveal key={service.slug} delay={(i % 6) * 70}>
+              <ServiceCard service={service} />
+            </Reveal>
           ))}
         </div>
       </Container>

@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Hero } from '@/components/Hero';
 import { Container } from '@/components/ui/Container';
 import { AreaCard } from '@/components/AreaCard';
+import { Reveal } from '@/components/Reveal';
 import { enabledAreas } from '@/config/areas';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -21,8 +22,10 @@ export default async function AreasPage({ params }: { params: Promise<{ locale: 
       <Hero headline={t('pageTitle')} subheadline={t('pageDescription')} compact />
       <Container className="py-16">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {enabledAreas().map((area) => (
-            <AreaCard key={area.slug} area={area} />
+          {enabledAreas().map((area, i) => (
+            <Reveal key={area.slug} delay={(i % 6) * 70}>
+              <AreaCard area={area} />
+            </Reveal>
           ))}
         </div>
         <p className="mt-10 text-center text-sm text-ink-800/70">

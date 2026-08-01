@@ -12,10 +12,12 @@ export function AreaCard({ area }: { area: AreaConfig }) {
       className="group flex flex-col rounded-xl2 border border-pine-100 bg-white p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-soft"
     >
       <div className="flex items-center gap-2 text-pine-600">
-        <MapPin className="h-4 w-4" />
+        <MapPin className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:scale-110" />
         <span className="text-xs font-semibold uppercase tracking-wide">{area.region}</span>
       </div>
-      <h3 className="mt-2 font-display text-lg font-semibold text-ink-950">{t(`${area.slug}.name`)}</h3>
+      <h3 className="mt-2 font-display text-lg font-semibold text-ink-950 transition-colors group-hover:text-pine-700">
+        {t(`${area.slug}.name`)}
+      </h3>
       <p className="mt-2 text-sm text-ink-800/75">{t(`${area.slug}.intro`)}</p>
     </Link>
   );
