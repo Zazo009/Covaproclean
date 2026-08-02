@@ -15,19 +15,24 @@ const categoryIcon: Record<ServiceConfig['category'], LucideIcon> = {
 };
 
 /**
- * A quick, honest "what would this take?" tool: pick a service, see the
- * real duration range from the service catalogue. No price is shown here
- * since pricing isn't confirmed yet — the CTA is explicit that the exact
- * price comes after the booking request, never invented on the spot.
+ * A quick, honest "what would this take?" tool: pick a service, see its
+ * real duration range and starting price straight from the service
+ * catalogue — nothing invented on the spot. Services still marked
+ * `pricingModel: 'quote'` show "Quote required" instead of a number.
  */
 export function InstantEstimateCard({ services }: { services: ServiceConfig[] }) {
   const t = useTranslations('home.instantEstimate');
+  const tCommon = useTranslations('common');
   const tServices = useTranslations('services.items');
   const [active, setActive] = useState(services[0]);
 
   if (!active) return null;
 
   const Icon = categoryIcon[active.category];
+  const priceLabel =
+    active.pricingModel === 'from' && active.fromPrice !== null
+      ? `${tCommon('from')} €${active.fromPrice}`
+      : tCommon('quoteRequired');
 
   return (
     <div className="rounded-xl2 border border-pine-100 bg-white p-6 shadow-card sm:p-7">
@@ -52,15 +57,26 @@ export function InstantEstimateCard({ services }: { services: ServiceConfig[] })
         ))}
       </div>
 
-      <div key={active.slug} className="animate-pop-in mt-5 flex items-center gap-4 rounded-xl2 bg-pine-50 p-4">
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-pine-700 text-white">
-          <Icon className="h-5 w-5" />
-        </span>
-        <div>
-          <p className="text-xs font-medium uppercase tracking-wide text-pine-700">{t('durationLabel')}</p>
-          <p className="font-display text-xl font-semibold text-ink-950">
-            {active.durationRangeMinutes[0]}–{active.durationRangeMinutes[1]} {t('minutes')}
-          </p>
+      <div key={active.slug} className="animate-pop-in mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="flex items-center gap-3 rounded-xl2 bg-pine-50 p-4">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-pine-700 text-white">
+            <Icon className="h-5 w-5" />
+          </span>
+          <div>
+            <p className="text-xs font-medium uppercase tracking-wide text-pine-700">{t('durationLabel')}</p>
+            <p className="font-display text-lg font-semibold text-ink-950">
+              {active.durationRangeMinutes[0]}–{active.durationRangeMinutes[1]} {t('minutes')}
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center gap-3 rounded-xl2 bg-sand-100 p-4">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-pine-700/10 text-pine-700">
+            <span className="text-base font-bold">€</span>
+          </span>
+          <div>
+            <p className="text-xs font-medium uppercase tracking-wide text-pine-700">{t('priceLabel')}</p>
+            <p className="font-display text-lg font-semibold text-ink-950">{priceLabel}</p>
+          </div>
         </div>
       </div>
 

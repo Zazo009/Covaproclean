@@ -14,9 +14,9 @@ export interface PricingResult {
 }
 
 /**
- * Estimates duration/price from confirmed config values only. While
- * `fromPrice` fields remain null (no prices confirmed yet), this always
- * resolves to `quote_required` — it never invents a number.
+ * Estimates duration/price from config values only — never invents a
+ * number. Resolves to `quote_required` whenever the service or any
+ * selected extra has `fromPrice: null` (pricingModel === 'quote').
  */
 export function estimatePricing(input: Pick<BookingInput, 'serviceType' | 'extras'>): PricingResult {
   const service = getService(input.serviceType);
