@@ -86,6 +86,19 @@
       "secondaryCta": "Solicitar presupuesto",
       "microTrust": "Proceso transparente · Comunicación directa · De Marbella a Málaga"
     },
+    "quickStart": {
+      "statServices": "Servicios ofrecidos",
+      "statAreas": "Zonas cubiertas",
+      "statSteps": "Pasos para solicitar"
+    },
+    "instantEstimate": {
+      "eyebrow": "Comprobación rápida",
+      "heading": "¿Cuánto durará tu limpieza?",
+      "durationLabel": "Duración habitual",
+      "minutes": "min",
+      "cta": "Ver mi precio exacto",
+      "note": "No se requiere pago para solicitar — confirmamos el precio final contigo."
+    },
     "categories": {
       "heading": "Servicios de limpieza para cada tipo de propiedad",
       "subheading": "Desde el mantenimiento semanal hasta una limpieza profunda puntual, elige el servicio que mejor se adapte a tu espacio.",
@@ -162,7 +175,8 @@
       "heading": "¿Listo para un espacio más limpio?",
       "desc": "Reserva online en minutos o escríbenos por WhatsApp para una respuesta rápida y personal.",
       "primaryCta": "Reservar una limpieza",
-      "secondaryCta": "Chatear por WhatsApp"
+      "secondaryCta": "Chatear por WhatsApp",
+      "microTrust": "Sin pago por adelantado · Formulario rápido de 6 pasos"
     }
   },
   "trustBadges": {

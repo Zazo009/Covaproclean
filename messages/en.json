@@ -86,6 +86,19 @@
       "secondaryCta": "Request a quote",
       "microTrust": "Transparent process · Direct communication · Serving Marbella to Málaga"
     },
+    "quickStart": {
+      "statServices": "Services offered",
+      "statAreas": "Areas covered",
+      "statSteps": "Steps to request"
+    },
+    "instantEstimate": {
+      "eyebrow": "Quick check",
+      "heading": "How long would your clean take?",
+      "durationLabel": "Typical duration",
+      "minutes": "min",
+      "cta": "Get my exact price",
+      "note": "No payment required to request — we confirm final pricing with you."
+    },
     "categories": {
       "heading": "Cleaning services for every property",
       "subheading": "From weekly upkeep to one-off deep cleans, choose the service that matches your space.",
@@ -162,7 +175,8 @@
       "heading": "Ready for a cleaner space?",
       "desc": "Book online in minutes, or reach out on WhatsApp for a fast, human response.",
       "primaryCta": "Book a cleaning",
-      "secondaryCta": "Chat on WhatsApp"
+      "secondaryCta": "Chat on WhatsApp",
+      "microTrust": "No upfront payment · Quick 6-step request form"
     }
   },
   "trustBadges": {

@@ -12,12 +12,24 @@ import { FAQAccordion } from '@/components/FAQAccordion';
 import { PhotoSlot } from '@/components/PhotoSlot';
 import { WhatsAppCTA } from '@/components/WhatsAppCTA';
 import { Reveal } from '@/components/Reveal';
+import { StatCounter } from '@/components/StatCounter';
+import { InstantEstimateCard } from '@/components/InstantEstimateCard';
 import { CostaSkyline } from '@/components/illustrations/CostaSkyline';
 import { enabledServices } from '@/config/services';
 import { enabledAreas } from '@/config/areas';
 import { testimonials } from '@/config/testimonials';
 import { faqs } from '@/config/faqs';
-import { ClipboardList, CalendarCheck, Home as HomeIcon, Sparkles } from 'lucide-react';
+import {
+  ClipboardList,
+  CalendarCheck,
+  Home as HomeIcon,
+  Sparkles,
+  MapPin,
+  MessageCircleHeart,
+  Building,
+  Palmtree,
+  Repeat,
+} from 'lucide-react';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -37,7 +49,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <>
       <div className="bg-pine-900 py-2 text-center text-xs font-medium text-white">
-        <Container>{t('announcementBar')}</Container>
+        <Container className="flex items-center justify-center gap-1.5">
+          <Sparkles className="h-3.5 w-3.5 shrink-0 text-pine-300" aria-hidden />
+          {t('announcementBar')}
+        </Container>
       </div>
 
       <Hero
@@ -62,7 +77,26 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         }
       />
 
-      <section className="py-20">
+      <div className="relative z-10 -mt-8 px-4 sm:-mt-14 sm:px-6 lg:-mt-20 lg:px-8">
+        <Container>
+          <Reveal>
+            <div className="grid grid-cols-1 gap-8 rounded-xl2 border border-pine-100 bg-sand-50 p-6 shadow-soft sm:p-8 lg:grid-cols-5 lg:items-start lg:gap-10">
+              <div className="lg:col-span-2">
+                <div className="grid grid-cols-3 gap-4 rounded-xl2 border border-pine-100 bg-white p-5 shadow-card sm:gap-6 sm:p-6">
+                  <StatCounter value={enabledServices().length} label={t('quickStart.statServices')} suffix="+" />
+                  <StatCounter value={enabledAreas().length} label={t('quickStart.statAreas')} suffix="+" />
+                  <StatCounter value={6} label={t('quickStart.statSteps')} />
+                </div>
+              </div>
+              <div className="lg:col-span-3">
+                <InstantEstimateCard services={featuredServices.slice(0, 5)} />
+              </div>
+            </div>
+          </Reveal>
+        </Container>
+      </div>
+
+      <section className="pb-20 pt-12 sm:pt-16">
         <Container>
           <Reveal className="mx-auto max-w-2xl text-center">
             <h2 className="font-display text-3xl font-semibold text-ink-950">{t('categories.heading')}</h2>
@@ -89,16 +123,20 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <h2 className="font-display text-3xl font-semibold text-ink-950">{t('howItWorks.heading')}</h2>
             <p className="mt-3 text-ink-800/75">{t('howItWorks.subheading')}</p>
           </Reveal>
-          <ol className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="relative mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div
+              aria-hidden
+              className="absolute left-0 right-0 top-4 hidden h-px bg-gradient-to-r from-pine-200 via-pine-300 to-pine-200 lg:block"
+            />
             {[
               { icon: ClipboardList, title: t('howItWorks.step1Title'), desc: t('howItWorks.step1Desc') },
               { icon: HomeIcon, title: t('howItWorks.step2Title'), desc: t('howItWorks.step2Desc') },
               { icon: CalendarCheck, title: t('howItWorks.step3Title'), desc: t('howItWorks.step3Desc') },
               { icon: Sparkles, title: t('howItWorks.step4Title'), desc: t('howItWorks.step4Desc') },
             ].map((step, i) => (
-              <li key={step.title} className="h-full">
-                <Reveal delay={i * 100} className="group relative h-full rounded-xl2 border border-pine-100 p-6 transition-colors hover:border-pine-300 hover:bg-pine-50/50">
-                  <span className="absolute -top-4 left-6 flex h-8 w-8 items-center justify-center rounded-full bg-pine-700 text-sm font-bold text-white transition-transform group-hover:scale-110">
+              <li key={step.title} className="relative h-full">
+                <Reveal delay={i * 100} className="group relative h-full rounded-xl2 border border-pine-100 bg-white p-6 transition-all hover:-translate-y-1 hover:border-pine-300 hover:shadow-soft">
+                  <span className="absolute -top-4 left-6 flex h-8 w-8 items-center justify-center rounded-full bg-pine-700 text-sm font-bold text-white ring-4 ring-white transition-transform group-hover:scale-110">
                     {i + 1}
                   </span>
                   <step.icon className="mt-2 h-6 w-6 text-pine-600 transition-transform group-hover:-translate-y-0.5" />
@@ -139,15 +177,20 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </Reveal>
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2">
             {[
-              [t('whyChoose.point1Title'), t('whyChoose.point1Desc')],
-              [t('whyChoose.point2Title'), t('whyChoose.point2Desc')],
-              [t('whyChoose.point3Title'), t('whyChoose.point3Desc')],
-              [t('whyChoose.point4Title'), t('whyChoose.point4Desc')],
-            ].map(([title, desc], i) => (
-              <Reveal key={title} delay={i * 80}>
-                <div className="rounded-xl2 bg-white p-6 shadow-card transition-shadow hover:shadow-soft">
-                  <h3 className="font-semibold text-ink-950">{title}</h3>
-                  <p className="mt-2 text-sm text-ink-800/70">{desc}</p>
+              { icon: ClipboardList, title: t('whyChoose.point1Title'), desc: t('whyChoose.point1Desc') },
+              { icon: MessageCircleHeart, title: t('whyChoose.point2Title'), desc: t('whyChoose.point2Desc') },
+              { icon: HomeIcon, title: t('whyChoose.point3Title'), desc: t('whyChoose.point3Desc') },
+              { icon: MapPin, title: t('whyChoose.point4Title'), desc: t('whyChoose.point4Desc') },
+            ].map((point, i) => (
+              <Reveal key={point.title} delay={i * 80}>
+                <div className="group flex gap-4 rounded-xl2 bg-white p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-soft">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-pine-50 text-pine-700 transition-colors group-hover:bg-pine-700 group-hover:text-white">
+                    <point.icon className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <h3 className="font-semibold text-ink-950">{point.title}</h3>
+                    <p className="mt-2 text-sm text-ink-800/70">{point.desc}</p>
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -158,14 +201,16 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section className="bg-pine-800 py-20 text-white">
         <Container className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           {[
-            { heading: t('recurring.heading'), desc: t('recurring.desc'), cta: t('recurring.cta'), href: '/book' as const },
+            { icon: Repeat, heading: t('recurring.heading'), desc: t('recurring.desc'), cta: t('recurring.cta'), href: '/book' as const },
             {
+              icon: Palmtree,
               heading: t('holidayRental.heading'),
               desc: t('holidayRental.desc'),
               cta: t('holidayRental.cta'),
               href: '/holiday-rental-cleaning' as const,
             },
             {
+              icon: Building,
               heading: t('commercial.heading'),
               desc: t('commercial.desc'),
               cta: t('commercial.cta'),
@@ -173,7 +218,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             },
           ].map((block, i) => (
             <Reveal key={block.heading} delay={i * 100}>
-              <h3 className="font-display text-xl font-semibold">{block.heading}</h3>
+              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white">
+                <block.icon className="h-5 w-5" />
+              </span>
+              <h3 className="mt-4 font-display text-xl font-semibold">{block.heading}</h3>
               <p className="mt-2 text-sm text-white/80">{block.desc}</p>
               <ButtonLink href={block.href} variant="secondary" size="md" className="mt-4">
                 {block.cta}
@@ -258,6 +306,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               </ButtonLink>
               <WhatsAppCTA variant="button" />
             </div>
+            <p className="mt-4 text-xs uppercase tracking-wide text-white/50">{t('finalCta.microTrust')}</p>
           </Reveal>
         </Container>
       </section>
