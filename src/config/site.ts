@@ -6,9 +6,13 @@
 export const site = {
   name: 'Cova Pro Clean',
   // Source: Spanish mercantile registry data (CIF/address), cross-checked
-  // across eInforma, Iberinform and Empresite — 2026-08-01. Re-verify against
-  // an official registry extract (Registro Mercantil) before relying on this
-  // for legal filings.
+  // across eInforma, Iberinform and Empresite (eleconomista.es) —
+  // 2026-08-01 and re-confirmed 2026-08-02. Registered business activity per
+  // Empresite: CNAE 81.21 (general building cleaning) and CNAE 81.22 (other
+  // cleaning activities). Re-verify against an official registry extract
+  // (Registro Mercantil) before relying on this for legal filings — phone,
+  // incorporation date and share capital are not published on any of these
+  // sources and remain unconfirmed.
   legalName: 'Cova Pro Clean SL',
   cif: 'B22466536',
   registeredAddress: 'Calle Somera, 10, 6º 11, 29001 Málaga, Spain',
