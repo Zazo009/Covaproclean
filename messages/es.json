@@ -487,6 +487,8 @@
     "pageDescription": "Cómo calcula Cova Pro Clean sus precios, explicado con claridad y sin sorpresas.",
     "heading": "Precios sencillos y transparentes",
     "intro": "No publicamos precios fijos porque cada propiedad es diferente. Tu precio se estima con los siguientes factores durante la reserva y se confirma antes de comenzar la limpieza.",
+    "startingPricesHeading": "Precios desde, por servicio",
+    "startingPricesSubheading": "Precios reales desde nuestra tarifa actual — el precio final depende de los factores que aparecen a continuación.",
     "factorsHeading": "Qué influye en el precio",
     "factors": {
       "propertySize": { "title": "Tamaño de la propiedad", "desc": "Las propiedades más grandes requieren, de forma natural, más tiempo de limpieza." },

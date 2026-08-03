@@ -487,6 +487,8 @@
     "pageDescription": "How Cova Pro Clean calculates pricing — clearly explained, with no hidden surprises.",
     "heading": "Simple, transparent pricing",
     "intro": "We don't publish flat prices because every property is different. Instead, your price is estimated from the factors below during booking, and confirmed before any cleaning begins.",
+    "startingPricesHeading": "Starting prices by service",
+    "startingPricesSubheading": "Real starting prices from our current rate card — your final price depends on the factors below.",
     "factorsHeading": "What affects your price",
     "factors": {
       "propertySize": { "title": "Property size", "desc": "Larger properties naturally take longer to clean thoroughly." },
