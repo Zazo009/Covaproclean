@@ -23,6 +23,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
     <>
       <Hero headline={t('pageTitle')} subheadline={t('pageDescription')} compact />
       <Container className="py-16">
+        <h2 className="sr-only">{t('gridHeading')}</h2>
         <ServicesFilterGrid services={list} />
       </Container>
     </>

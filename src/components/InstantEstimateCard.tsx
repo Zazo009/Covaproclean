@@ -37,7 +37,7 @@ export function InstantEstimateCard({ services }: { services: ServiceConfig[] })
   return (
     <div className="rounded-xl2 border border-pine-100 bg-white p-6 shadow-card sm:p-7">
       <p className="text-xs font-semibold uppercase tracking-wide text-pine-700">{t('eyebrow')}</p>
-      <h3 className="mt-1 font-display text-lg font-semibold text-ink-950">{t('heading')}</h3>
+      <h2 className="mt-1 font-display text-lg font-semibold text-ink-950">{t('heading')}</h2>
 
       <div className="mt-4 flex flex-wrap gap-2">
         {services.map((service) => (
@@ -83,7 +83,7 @@ export function InstantEstimateCard({ services }: { services: ServiceConfig[] })
       <ButtonLink href="/book" className="mt-5 w-full">
         {t('cta')}
       </ButtonLink>
-      <p className="mt-2 text-center text-[11px] text-ink-800/50">{t('note')}</p>
+      <p className="mt-2 text-center text-[11px] text-ink-800/80">{t('note')}</p>
     </div>
   );
 }

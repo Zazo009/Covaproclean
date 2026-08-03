@@ -51,7 +51,7 @@ export function StatCounter({
         {display}
         {suffix}
       </p>
-      <p className="mt-1 text-xs font-medium uppercase tracking-wide text-ink-800/60">{label}</p>
+      <p className="mt-1 text-xs font-medium uppercase tracking-wide text-ink-800/80">{label}</p>
     </div>
   );
 }

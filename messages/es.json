@@ -193,6 +193,7 @@
   "services": {
     "pageTitle": "Servicios de limpieza",
     "pageDescription": "Descubre todos los servicios de limpieza de Cova Pro Clean en la Costa del Sol, desde el mantenimiento regular hasta limpiezas profundas especializadas.",
+    "gridHeading": "Explora los servicios por categoría",
     "filterAll": "Todos los servicios",
     "filterResidential": "Hogares",
     "filterHolidayRental": "Alquiler vacacional",
