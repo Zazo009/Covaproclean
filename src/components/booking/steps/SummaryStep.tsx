@@ -47,9 +47,6 @@ export function SummaryStep() {
           label={t('dateTime')}
           value={[values.preferredDate, values.preferredTimeWindow].filter(Boolean).join(' — ') || '—'}
         />
-        {pricing.estimatedDurationMinutes && (
-          <Row label={t('estimatedDuration')} value={`${pricing.estimatedDurationMinutes} ${tCommon('minutes')}`} />
-        )}
         <Row label={t('estimatedPrice')} value={priceLine} />
       </dl>
       <p className="mt-2 text-xs text-ink-800/60">{t('priceNote')}</p>

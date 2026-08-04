@@ -751,10 +751,7 @@
     "extras": {
       "heading": "Add optional extras",
       "subheading": "Select any additional services you'd like included.",
-      "quantity": "Quantity",
-      "estimatedTime": "+{minutes} min",
-      "runningTotalLabel": "Estimated cleaning time",
-      "runningTotal": "{min}–{max} min"
+      "quantity": "Quantity"
     },
     "dateTime": {
       "heading": "Choose your preferred date and time",
@@ -809,7 +806,6 @@
       "frequency": "Frequency",
       "extras": "Extras",
       "dateTime": "Requested date & time",
-      "estimatedDuration": "Estimated duration",
       "estimatedPrice": "Estimated price",
       "priceNote": "Final pricing is confirmed after review — this is an estimate, not a fixed price.",
       "conditionsHeading": "Booking conditions",
